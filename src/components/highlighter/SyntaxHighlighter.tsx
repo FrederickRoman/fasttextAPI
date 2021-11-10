@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Prism from "prismjs";
-//import "prismjs/themes/prism-tomorrow.css";
-import "prismjs/themes/prism-vsc-dark-plus.css";
+import "prismjs/themes/prism-tomorrow.css";
+//import "prismjs/themes/prism-vsc-dark-plus.css";
 
 require("prismjs/components/prism-python");
 require("prismjs/components/prism-bash");
