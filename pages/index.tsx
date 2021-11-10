@@ -1,7 +1,7 @@
 import Head from "next/head";
 
-import Container from "@material-ui/core/Container";
-import Divider from "@material-ui/core/Divider";
+import Container from "@mui/material/Container";
+import Divider from "@mui/material/Divider";
 
 import HeroBanner from "@/components/banner/HeroBanner";
 import IntroSection from "@/components/content/home/IntroSection";

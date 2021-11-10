@@ -1,7 +1,10 @@
 import Image from "next/image";
 import heroBgPic from "../../../public/img/hero_bg.jpeg";
 
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { Theme } from "@mui/material/styles";
+
+import createStyles from '@mui/styles/createStyles';
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

@@ -1,5 +1,5 @@
-import Typography from "@material-ui/core/Typography";
-import MuiLink from "@material-ui/core/Link";
+import Typography from "@mui/material/Typography";
+import MuiLink from "@mui/material/Link";
 
 function MainFooter(): JSX.Element {
   const currentYear: number = new Date().getFullYear();

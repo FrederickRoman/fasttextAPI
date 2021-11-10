@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-import Grid from "@material-ui/core/Grid";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
+import Grid from "@mui/material/Grid";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 import FetchCallSnippet from "@/components/snippet/FetchCallSnippet";
 import { codingLang } from "@/types/union/codingLang";
@@ -12,7 +12,7 @@ import { codingLang } from "@/types/union/codingLang";
 function SampleSection(): JSX.Element {
   const [codeLang, setCodeLang] = useState<codingLang>("js");
 
-  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+  const handleChange = (event: SelectChangeEvent) => {
     setCodeLang(event.target.value as codingLang);
   };
 

@@ -5,7 +5,10 @@ import theme from "@/themes/ftaTheme";
 import createCache from '@emotion/cache';
 
 function createEmotionCache() {
-  return createCache({ key: 'css' });
+  return createCache({
+    key: 'css',
+    prepend: true,
+  });
 }
 
 export default class MyDocument extends Document {

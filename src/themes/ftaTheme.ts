@@ -1,11 +1,10 @@
-import { createTheme, Theme } from "@material-ui/core/styles";
+import { createTheme, Theme, adaptV4Theme } from "@mui/material/styles";
 
-import purple from "@material-ui/core/colors/purple";
-import bluegrey from '@material-ui/core/colors/blueGrey';
+import { purple, blueGrey as bluegrey } from '@mui/material/colors';
 
-const ftaTheme: Theme = createTheme({
+const ftaTheme: Theme = createTheme(adaptV4Theme({
   palette: {
-    type: 'light',
+    mode: 'light',
     background: {
       default: bluegrey[50],
     },
@@ -16,6 +15,6 @@ const ftaTheme: Theme = createTheme({
       main: purple[300],
     },
   },
-});
+}));
 
 export default ftaTheme;
