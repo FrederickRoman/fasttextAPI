@@ -1,0 +1,1 @@
+export type codingLang = "js" | "py" | "bash";
