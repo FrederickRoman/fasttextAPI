@@ -29,7 +29,7 @@ function RoutesDescription(): JSX.Element {
 
 function ResourcesSection(): JSX.Element {
   return (
-    <section>
+    <Box component="section" my={5}>
       <Grid
         container
         direction="column"
@@ -51,7 +51,7 @@ function ResourcesSection(): JSX.Element {
           </Grid>
         </Grid>
       </Grid>
-    </section>
+    </Box>
   );
 }
 

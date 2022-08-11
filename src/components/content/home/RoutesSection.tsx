@@ -14,7 +14,7 @@ function PostRoute(): JSX.Element {
       </Grid>
       <Grid item>
         <Box mx={1}>
-          <pre>body:&#123;words:['list', 'of', 'words']&#125; </pre>
+          <span> body:&#123;words:['list', 'of', 'words']&#125; </span>
         </Box>
       </Grid>
     </Grid>
@@ -33,7 +33,7 @@ function RoutesDescription(): JSX.Element {
 
 function RoutesSection(): JSX.Element {
   return (
-    <section>
+    <Box component="section" my={5}>
       <Grid
         container
         direction="column"
@@ -47,7 +47,7 @@ function RoutesSection(): JSX.Element {
           <RoutesDescription />
         </Grid>
       </Grid>
-    </section>
+    </Box>
   );
 }
 

@@ -8,6 +8,7 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 import FetchCallSnippet from "@/components/snippet/FetchCallSnippet";
 import { codingLang } from "@/types/union/codingLang";
+import { Box } from "@mui/material";
 
 function SampleSection(): JSX.Element {
   const [codeLang, setCodeLang] = useState<codingLang>("js");
@@ -37,10 +38,10 @@ function SampleSection(): JSX.Element {
   );
 
   return (
-    <section>
+    <Box component="section" my={5}>
       <CodeLangSelect />
       <FetchCallSnippet codeLang={codeLang} />
-    </section>
+    </Box>
   );
 }
 
