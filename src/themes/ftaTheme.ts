@@ -1,8 +1,8 @@
-import { createTheme, Theme, adaptV4Theme } from "@mui/material/styles";
+import { createTheme, Theme } from "@mui/material/styles";
 
 import { purple, blueGrey as bluegrey } from '@mui/material/colors';
 
-const ftaTheme: Theme = createTheme(adaptV4Theme({
+const ftaTheme: Theme = createTheme(({
   palette: {
     mode: 'light',
     background: {
