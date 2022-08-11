@@ -1,5 +1,5 @@
+import dynamic from "next/dynamic";
 import Box from "@mui/material/Box";
-import SyntaxHighlighter from "@/components/highlighter/SyntaxHighlighter";
 import { codingLang } from "@/types/union/codingLang";
 
 interface Props {
@@ -7,6 +7,15 @@ interface Props {
 }
 
 const API_URL = "https://fasttextapi.com";
+
+/**
+ * To avoid
+ * Warning: Prop `className` did not match.
+ * Server: " language-js" Client: "language-js",
+ * lazy load SyntaxHighlighter without SSR
+ */
+const lazyLoadSH = () => import("@/components/highlighter/SyntaxHighlighter");
+const SyntaxHighlighter = dynamic(lazyLoadSH, { ssr: false });
 
 function JavascriptSnippet(): JSX.Element {
   return (
@@ -58,7 +67,7 @@ function FetchCallSnippet(props: Props): JSX.Element {
   };
 
   return (
-    <Box minHeight={90} style={{background:"#1e1e1e"}}>
+    <Box minHeight={90} style={{ background: "#1e1e1e" }}>
       <Snippet />
     </Box>
   );
