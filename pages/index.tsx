@@ -8,8 +8,13 @@ import IntroSection from "@/components/content/home/IntroSection";
 import ResourcesSection from "@/components/content/home/ResourcesSection";
 import RoutesSection from "@/components/content/home/RoutesSection";
 import SampleSection from "@/components/content/home/SampleSection";
-import DemoSection from "@/components/demo/DemoSection";
 import MainFooter from "@/components/nav/footer/MainFooter";
+
+import dynamic from "next/dynamic";
+
+const DemoSection = dynamic(() => import("@/components/demo/DemoSection"), {
+  ssr: false,
+});
 
 function PageHead(): JSX.Element {
   return (
