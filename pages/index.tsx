@@ -1,7 +1,6 @@
 import Head from "next/head";
 
-import Container from "@mui/material/Container";
-import Divider from "@mui/material/Divider";
+import { Container, Stack, Divider } from "@mui/material";
 
 import HeroBanner from "@/components/banner/HeroBanner";
 import IntroSection from "@/components/content/home/IntroSection";
@@ -35,15 +34,17 @@ function Home(): JSX.Element {
       <PageHead />
       <HeroBanner />
       <Container>
-        <IntroSection />
-        <Divider />
-        <ResourcesSection />
-        <Divider />
-        <RoutesSection />
-        <Divider />
-        <SampleSection />
-        <Divider />
-        <DemoSection />
+        <Stack spacing={12}>
+          <IntroSection />
+          <Divider />
+          <ResourcesSection />
+          <Divider />
+          <RoutesSection />
+          <Divider />
+          <SampleSection />
+          <Divider />
+          <DemoSection />
+        </Stack>
       </Container>
       <MainFooter />
     </>
