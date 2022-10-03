@@ -1,16 +1,42 @@
-import Typography from "@mui/material/Typography";
-import MuiLink from "@mui/material/Link";
+import { Box, Link, Typography } from "@mui/material";
 
 function MainFooter(): JSX.Element {
   const currentYear: number = new Date().getFullYear();
   return (
-    <Typography variant="body2" color="primary" align="center">
-      ©
-      <MuiLink color="inherit" href="https://www.frederickroman.com/">
-        &nbsp; Frederick Roman &nbsp;
-      </MuiLink>
-      {currentYear}.
-    </Typography>
+    <Box mt={20} mb={5}>
+      <Typography
+        variant="body2"
+        color="primary"
+        align="center"
+        sx={{ fontSize: "large" }}
+      >
+        ©
+        <Link
+          color="inherit"
+          href="https://www.frederickroman.com/"
+          sx={{ textDecoration: "none" }}
+        >
+          &nbsp; Frederick Roman &nbsp;
+        </Link>
+        {currentYear}.
+      </Typography>
+      <Typography
+        variant="body2"
+        color="primary"
+        align="center"
+        sx={{ fontSize: "large" }}
+      >
+        ©
+        <Link
+          color="inherit"
+          href="https://homeroroman.com/"
+          sx={{ textDecoration: "none" }}
+        >
+          &nbsp; Homero Roman &nbsp; &nbsp;
+        </Link>
+        {currentYear}.
+      </Typography>
+    </Box>
   );
 }
 
