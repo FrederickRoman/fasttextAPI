@@ -1,6 +1,7 @@
 import Head from "next/head";
+import dynamic from "next/dynamic";
 
-import { Container, Stack, Divider } from "@mui/material";
+import { Container, Stack, Divider, Grid } from "@mui/material";
 
 import HeroBanner from "@/components/banner/HeroBanner";
 import IntroSection from "@/components/content/home/IntroSection";
@@ -8,8 +9,6 @@ import ResourcesSection from "@/components/content/home/ResourcesSection";
 import RoutesSection from "@/components/content/home/RoutesSection";
 import SampleSection from "@/components/content/home/SampleSection";
 import MainFooter from "@/components/nav/footer/MainFooter";
-
-import dynamic from "next/dynamic";
 
 const DemoSection = dynamic(() => import("@/components/demo/DemoSection"), {
   ssr: false,
@@ -37,9 +36,14 @@ function Home(): JSX.Element {
         <Stack spacing={12}>
           <IntroSection />
           <Divider />
-          <ResourcesSection />
-          <Divider />
-          <RoutesSection />
+          <Grid container justifyContent="space-evenly" alignItems="baseline">
+            <Grid item>
+              <ResourcesSection />
+            </Grid>
+            <Grid item>
+              <RoutesSection />
+            </Grid>
+          </Grid>
           <Divider />
           <SampleSection />
           <Divider />
