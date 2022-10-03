@@ -29,7 +29,7 @@ function RoutesDescription(): JSX.Element {
 
 function ResourcesSection(): JSX.Element {
   return (
-    <Box component="section" my={5}>
+    <Box component="section" >
       <Grid
         container
         direction="column"
