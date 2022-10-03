@@ -11,8 +11,10 @@ function WordTextField(props: Props): JSX.Element {
   const [value, setValue] = useState<string>("");
 
   const pushInputToList = (word: string): void => {
-    setWords((words) => (words.includes(word) ? words : [...words, word]));
-    setValue("");
+    if (word) {
+      setWords((words) => (words.includes(word) ? words : [...words, word]));
+      setValue("");
+    }
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void =>
