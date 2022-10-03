@@ -10,8 +10,7 @@ class ApiCallService {
       const { embeddings } = res.data;
       return embeddings;
     } catch (error) {
-      console.log(error);
-      return [];
+      throw "api error";
     }
   }
   static async awakeEmbeddingsServer(): Promise<void> {
