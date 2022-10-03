@@ -36,7 +36,7 @@ function DemoHeatmap(props: Props): JSX.Element {
         cellStyle={(_x, _y, ratio) => ({
           background: `rgb(12, 160, 44, ${ratio})`,
           fontSize: ".8rem",
-          color: `rgb(0, 0, 0, ${ratio / 2 + 0.4})`,
+          color: "black",
         })}
         cellHeight="2rem"
         xLabelsPos="top"
