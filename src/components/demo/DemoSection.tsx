@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Skeleton, Typography } from "@mui/material";
 import DemoWordAdd from "./input/DemoWordAdd";
 import DemoHeatmap from "./output/DemoHeatmap";
 import ApiCallService from "@/services/client/ApiCallService";
@@ -23,6 +23,8 @@ const DEFAULT_DATA: Readonly<number[][]> = Object.freeze([
 function DemoSection(): JSX.Element {
   const [words, setWords] = useState<string[]>([...DEFAULT_WORDS]);
   const [data, setData] = useState<number[][]>([...DEFAULT_DATA]);
+  const [error, setError] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     let isActive: boolean = true;
@@ -30,6 +32,8 @@ function DemoSection(): JSX.Element {
 
     async function fetchHeatmapData(words: string[]): Promise<void> {
       try {
+        setError(false);
+        setLoading(true);
         if (words.length) {
           const embeddings = await ApiCallService.getFastTextEmbeddings(words);
           console.log(embeddings);
@@ -44,6 +48,9 @@ function DemoSection(): JSX.Element {
       } catch (error) {
         console.log(error);
         setData([]);
+        setError(true);
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -51,6 +58,8 @@ function DemoSection(): JSX.Element {
     return () => {
       isActive = false;
       setData([]);
+      setError(false);
+      setLoading(false);
     };
   }, [words.toString()]);
 
@@ -78,7 +87,23 @@ function DemoSection(): JSX.Element {
           </Grid>
         </Grid>
         <Grid item width="100%">
-          {words.length && (
+          {words.length == 0 ? (
+            <Grid container justifyContent="center" alignItems="center">
+              <Grid item>Please, add words</Grid>
+            </Grid>
+          ) : loading ? (
+            <Skeleton
+              variant="rectangular"
+              width="100%"
+              height={`${2 * words.length + 1.4}rem`}
+            />
+          ) : error ? (
+            <Grid container justifyContent="center" alignItems="center">
+              <Grid item>
+                API connection error. Please try again later or report it.
+              </Grid>
+            </Grid>
+          ) : (
             <DemoHeatmap xLabels={words} yLabels={words} data={data} />
           )}
         </Grid>
