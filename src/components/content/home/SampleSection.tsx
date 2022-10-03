@@ -1,14 +1,15 @@
 import { useState } from "react";
-
-import Grid from "@mui/material/Grid";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
+import {
+  Box,
+  Stack,
+  Grid,
+  InputLabel,
+  MenuItem,
+  FormControl,
+} from "@mui/material";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-
 import FetchCallSnippet from "@/components/snippet/FetchCallSnippet";
 import { codingLang } from "@/types/union/codingLang";
-import { Box } from "@mui/material";
 
 function SampleSection(): JSX.Element {
   const [codeLang, setCodeLang] = useState<codingLang>("js");
@@ -39,8 +40,10 @@ function SampleSection(): JSX.Element {
 
   return (
     <Box component="section" my={5}>
-      <CodeLangSelect />
-      <FetchCallSnippet codeLang={codeLang} />
+      <Stack spacing={8}>
+        <CodeLangSelect />
+        <FetchCallSnippet codeLang={codeLang} />
+      </Stack>
     </Box>
   );
 }
