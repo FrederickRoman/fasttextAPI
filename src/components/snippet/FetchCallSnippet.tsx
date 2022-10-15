@@ -6,7 +6,7 @@ interface Props {
   codeLang: codingLang;
 }
 
-const API_URL = "https://fasttextapi.com";
+const API_URL = "https://fasttextapi.com/api/word/";
 
 /**
  * To avoid
@@ -18,42 +18,43 @@ const lazyLoadSH = () => import("@/components/highlighter/SyntaxHighlighter");
 const SyntaxHighlighter = dynamic(lazyLoadSH, { ssr: false });
 
 function JavascriptSnippet(): JSX.Element {
-  return (
-    <SyntaxHighlighter
-      codingLanguage="js"
-      codeText={
-        `fetch('${API_URL}/api/word/cat')` +
-        "\n" +
-        ".then(response => response.json())" +
-        "\n" +
-        ".then(json => console.log(json))"
-      }
-    />
-  );
+  const codeTextJs = `const data = { words: ['cat'] };
+
+fetch('${API_URL}', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(data),
+})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });`;
+  return <SyntaxHighlighter codingLanguage="js" codeText={codeTextJs} />;
 }
 
 function PythonSnippet(): JSX.Element {
-  return (
-    <SyntaxHighlighter
-      codingLanguage="python"
-      codeText={
-        "import requests" +
-        "\n" +
-        `response = requests.get('${API_URL}/api/word/cat')` +
-        "\n" +
-        "print(response.json())"
-      }
-    />
-  );
+  const codeTextPy = `import requests
+
+url = '${API_URL}'
+data = { words: ['cat'] }
+        
+r = requests.post(url, data = data)
+        
+print(r.json())`;
+  return <SyntaxHighlighter codingLanguage="python" codeText={codeTextPy} />;
 }
 
 function CurlSnippet(): JSX.Element {
-  return (
-    <SyntaxHighlighter
-      codingLanguage="bash"
-      codeText={`curl ${API_URL}/api/word/cat`}
-    />
-  );
+  const codeTextCurl = `curl -d '{ words: ['cat'] }' \\
+     -H "Content-Type: application/json" \\
+     -X POST ${API_URL}`;
+
+  return <SyntaxHighlighter codingLanguage="bash" codeText={codeTextCurl} />;
 }
 
 function FetchCallSnippet(props: Props): JSX.Element {
@@ -67,7 +68,7 @@ function FetchCallSnippet(props: Props): JSX.Element {
   };
 
   return (
-    <Box minHeight={90} style={{ background: "#1e1e1e" }}>
+    <Box minHeight={90} width={550}>
       <Snippet />
     </Box>
   );
