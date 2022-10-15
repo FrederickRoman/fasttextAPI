@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://fasttext-api.herokuapp.com/api/word/";
+const API_URL = "/api/word/";
 
 class ApiCallService {
   static async getFastTextEmbeddings(words: string[]): Promise<number[][]> {
