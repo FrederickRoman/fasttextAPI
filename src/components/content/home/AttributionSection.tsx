@@ -9,7 +9,7 @@ function AttributionSection(): JSX.Element {
         </Typography>
         <Stack spacing={2}>
           <p>
-            The data was taken from &nbsp;
+            The word embeddings were taken from &nbsp;
             <Link
               color="inherit"
               href="https://github.com/facebookresearch/fastText"
@@ -26,8 +26,8 @@ function AttributionSection(): JSX.Element {
             &nbsp;
           </p>
           <p>
-            The size of the data was reduced. Only the most common word embeddings were
-            extracted. Then the embeddings were reduced with PCA.
+            The size of the word embeddings was reduced. Only the most common
+            ones were extracted and they were reduced with PCA.
           </p>
         </Stack>
       </Stack>
