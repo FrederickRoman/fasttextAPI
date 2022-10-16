@@ -10,6 +10,7 @@ import ResourcesSection from "@/components/content/home/ResourcesSection";
 import RoutesSection from "@/components/content/home/RoutesSection";
 import SampleSection from "@/components/content/home/SampleSection";
 import MainFooter from "@/components/nav/footer/MainFooter";
+import AttributionSection from "@/components/content/home/AttributionSection";
 
 const DemoSection = dynamic(() => import("@/components/demo/DemoSection"), {
   ssr: false,
@@ -50,6 +51,9 @@ function Home(): JSX.Element {
           <SampleSection />
           <Divider />
           <DemoSection />
+          <Divider />
+          <AttributionSection />
+          <Divider />
         </Stack>
       </Container>
       <MainFooter />
