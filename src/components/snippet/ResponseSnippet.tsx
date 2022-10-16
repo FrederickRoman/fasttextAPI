@@ -310,7 +310,7 @@ const responseSample = `{
 
 function ResponseSnippet(): JSX.Element {
   return (
-    <Box minHeight={500} width="calc(min(90vw, 550px));" height={500} overflow="auto">
+    <Box minHeight={500} width="calc(min(90vw, 550px))" height={500} overflow="auto">
       <SyntaxHighlighter codingLanguage="js" codeText={responseSample} />
     </Box>
   );

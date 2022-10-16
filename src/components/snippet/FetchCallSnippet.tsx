@@ -68,7 +68,7 @@ function FetchCallSnippet(props: Props): JSX.Element {
   };
 
   return (
-    <Box minHeight={90} width="calc(min(90vw, 550px));">
+    <Box minHeight={90} width="calc(min(90vw, 550px))">
       <Snippet />
     </Box>
   );
