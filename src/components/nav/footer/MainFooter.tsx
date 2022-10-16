@@ -3,7 +3,7 @@ import { Box, Link, Typography } from "@mui/material";
 function MainFooter(): JSX.Element {
   const currentYear: number = new Date().getFullYear();
   return (
-    <Box mt={20} mb={5}>
+    <Box mt={5} mb={5}>
       <Typography
         variant="body2"
         color="primary"
