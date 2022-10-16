@@ -17,7 +17,7 @@ POST /api/word/ body:{words:['list', 'of', 'words']}
  
 ## Live website
 
-See [fastTextApi](https://fasttextapi.com).
+See [fastTextApi](https://www.fasttextapi.com).
 
 ## Main libraries used for this project
 
