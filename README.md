@@ -48,3 +48,9 @@ npm run build
 ```
 npm run lint
 ```
+
+## Attributions
+
+The data was taken from  [fastText public repository](https://github.com/facebookresearch/fastText)  where they are licensed under  [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). 
+
+The size of the data was reduced. Only the most common word embeddings were extracted. Then the embeddings were reduced with PCA.
