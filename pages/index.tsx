@@ -5,6 +5,7 @@ import { Container, Stack, Divider, Grid } from "@mui/material";
 
 import HeroBanner from "@/components/banner/HeroBanner";
 import IntroSection from "@/components/content/home/IntroSection";
+import PurposeSection from "@/components/content/home/PurposeSection";
 import ResourcesSection from "@/components/content/home/ResourcesSection";
 import RoutesSection from "@/components/content/home/RoutesSection";
 import SampleSection from "@/components/content/home/SampleSection";
@@ -35,6 +36,7 @@ function Home(): JSX.Element {
       <Container>
         <Stack spacing={12}>
           <IntroSection />
+          <PurposeSection />
           <Divider />
           <Grid container justifyContent="space-evenly" alignItems="baseline">
             <Grid item>
